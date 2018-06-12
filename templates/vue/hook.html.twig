@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vue hook !{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/js/hook.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+
+<div class="container mt-3" id="app">
+    <div class="row">
+        <div class="col" v-cloak>
+            {% verbatim %}
+                Count : {{ count }}
+            {% endverbatim %}
+            <br />
+            <button class="btn btn-sm btn-success" @click="increment">Increment</button>
+        </div>
+    </div>
+    <pre v-highlightjs>
+        <code class="javascript">
+import Vue from 'vue'
+import VueHighlightJS from 'vue-highlightjs'
+
+Vue.use(VueHighlightJS);
+
+let app = new Vue({
+    el: '#app',
+    data: {
+        text: 'Hello World',
+        count: 0
+    },
+    methods: {
+        alertTime() {
+            alert(`this time is ${Date.now().toLocaleString()}`)
+        },
+        increment() {
+            this.count++
+        }
+    },
+    created() {
+        this.alertTime()
+    },
+    mounted() {
+        this.alertTime()
+    },
+    updated() {
+        console.log('this.count', this.count)
+    }
+});
+
+
+        </code>
+    </pre>
+    <a href="{{ path('default') }}" class="btn btn-primary">Kembali ke halaman utama</a>
+</div>
+
+{% endblock %}

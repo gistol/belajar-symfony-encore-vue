@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Counter Component !{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/agate.min.css">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/js/counter.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+
+<div class="container mt-3" id="app">
+    <div class="row">
+        <div class="col-md-12">
+            <counter v-bind:add-num="2"></counter>
+        </div>
+    </div>
+    <div class="row mt-3">
+         <div class="col">
+            File Counter.vue di folder assets/js/components/
+            {% set template = "
+<template>
+    <div>
+        <p>Counter saat ini : {{ '{{' }}count}}, klik button untuk menambahkan counter </p>
+         <button @click=\"increment\" class=\"btn btn-success btn-sm\"> Increment by {{ '{{' }}addNum}} </button>
+    </div>
+</template>" %}
+             {% set usage='<counter v-bind:add-num="2"></counter>' %}
+            <pre v-highlightjs>
+                <code class="html">
+                    {{ template|e }}
+                </code>
+
+<code class="javascript">
+
+export default {
+    name: "counter",
+    props: {
+        addNum: {
+            type: Number,
+            default: 1
+        }
+    },
+    data() {
+        return {
+            count: 0
+        }
+    },
+    methods: {
+        increment() {
+            this.count += this.addNum;
+        }
+    }
+
+}
+</code>
+<b> Usage : </b>
+<code class="html"> {{ usage|e }} </code>
+            </pre>
+
+         </div>
+    </div>
+    <a href="{{ path('default') }}" class="btn btn-primary">Kembali ke halaman utama</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Note master apps !{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
+    <link rel="stylesheet" href="http://davidtkatz.com/public_css/noteMaster.css?lbisphpreq=1">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/js/notemaster.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container mt-3" id="app">
+    {% verbatim %}
+    <h3>{{ title }}</h3>
+    <div class="row">
+        <div class="col">
+            <div class="form">
+                <div class="form-group">
+                    <div class="form-group">
+                         <label> Note title</label>
+                         <input class="form-control" type="text" v-model="note.title">
+                    </div>
+                    <div class="form-group">
+                         <label> Note text</label>
+                         <textarea class="form-control" v-model="note.text"></textarea>
+                    </div>
+                </div>
+                <button class="btn btn-primary" @click="addNote">Submit</button>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="col-sm-4 note" v-for="(note,index) in notes">
+                <div class="card">
+                    <div class="card-block">
+                        <button class="close" @click="removeNote(index)"> x </button>
+                        <h4 class="card-title">{{ note.title }}</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ note.date}}</h6>
+                        <p class="card-text">{{ note.text }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endverbatim %}
+    <pre v-highlightjs>
+        <code class="javascript">
+        </code>
+    </pre>
+    <a href="{{ path('default') }}" class="btn btn-primary">Kembali ke halaman utama</a>
+</div>
+
+{% endblock %}

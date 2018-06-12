@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>This is an example of a counter components in VueJs {{ count }} </p>
+        <p>Counter saat ini : {{ count }}, klik button untuk menambahkan counter </p>
         <button @click="increment" class="btn btn-success btn-sm"> Increment by {{ addNum }}</button>
     </div>
 </template>

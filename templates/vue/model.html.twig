@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vue model !{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/js/model.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+
+<div class="container mt-3" id="app">
+    <div class="row">
+        <div class="col">
+            <form>
+                <div class="form-group">
+                    <label for="text"> Change the text</label>
+                    <input type="text" class="form-control" placeholder="text..." v-model="text">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% verbatim %}
+                {{ lowerText }}
+            {% endverbatim %}
+        </div>
+    </div>
+    <pre v-highlightjs>
+        <code class="javascript">
+import Vue from 'vue'
+import VueHighlightJS from 'vue-highlightjs'
+
+Vue.use(VueHighlightJS);
+
+let app = new Vue({
+    el: '#app',
+    data: {
+        text: ''
+    },
+    computed: {
+        lowerText() {
+            return this.text.toLowerCase()
+        }
+    }
+});
+
+        </code>
+    </pre>
+    <a href="{{ path('default') }}" class="btn btn-primary">Kembali ke halaman utama</a>
+</div>
+
+{% endblock %}

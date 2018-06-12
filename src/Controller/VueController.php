@@ -8,12 +8,42 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class VueController extends Controller
 {
     /**
-     * @Route("/", name="vue")
+     * @Route("/counter-component", name="counter-component")
      */
-    public function index()
+    public function counter()
     {
-        return $this->render('vue/index.html.twig', [
-            'controller_name' => 'VueController',
-        ]);
+        return $this->render('vue/counter.html.twig');
+    }
+
+    /**
+     * @Route("/vue-directive", name="vue-directive")
+     */
+    public function directive()
+    {
+        return $this->render('vue/directive.html.twig');
+    }
+
+    /**
+     * @Route("/vue-model", name="vue-model")
+     */
+    public function model()
+    {
+        return $this->render('vue/model.html.twig');
+    }
+
+    /**
+     * @Route("/vue-hook", name="vue-hook")
+     */
+    public function hook()
+    {
+        return $this->render('vue/hook.html.twig');
+    }
+
+    /**
+     * @Route("/vue-notemaster", name="vue-notemaster")
+     */
+    public function noteMaster()
+    {
+        return $this->render('vue/notemaster.html.twig');
     }
 }

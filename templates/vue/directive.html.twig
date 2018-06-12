@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vue directive !{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/github.min.css">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/js/directive.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+
+<div class="container mt-3" id="app">
+    <div class="row">
+        <div class="col">
+            <strong>Contoh v-bind: title : </strong> <br />
+            <div
+                    v-bind:title="randNum"
+                    v-if="shown">
+                Hover tulisan ini untuk mendapatkan random number
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <strong> Contoh v-for kombinasi dengan v-if : </strong>
+            <ul>
+                <li v-for="color in colors" v-if="color.primary">
+                    {% verbatim %}
+                    {{ color.title }}
+                {% endverbatim %}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <strong> Contoh v:click : </strong>
+            <button class="btn btn-success btn-sm" @click="reveal()">Klik untuk liat secret number</button>
+        </div>
+    </div>
+    <pre v-highlightjs>
+        <code class="javascript">
+import Vue from 'vue'
+import VueHighlightJS from 'vue-highlightjs'
+
+Vue.use(VueHighlightJS);
+
+let app = new Vue({
+    el: '#app',
+    data: {
+        randNum: Math.floor(Math.random() * 50) + 1,
+        shown: true,
+        colors: [
+            {title: 'red', primary: true },
+            {title: 'green', primary: true },
+            {title: 'blue', primary: false },
+            {title: 'yellow',primary: false },
+            {title: 'orange', primary: false }
+        ],
+        secretNumber: Math.floor(Math.random() * 100) + 1
+    },
+    methods: {
+        reveal() {
+            alert(`Nomor rahasia adalah : ${this.secretNumber}`)
+        }
+    }
+});
+
+        </code>
+    </pre>
+    <a href="{{ path('default') }}" class="btn btn-primary">Kembali ke halaman utama</a>
+</div>
+
+{% endblock %}
