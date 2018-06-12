@@ -46,4 +46,12 @@ class VueController extends Controller
     {
         return $this->render('vue/notemaster.html.twig');
     }
+
+    /**
+     * @Route("/vue-starbase", name="vue-starbase")
+     */
+    public function starBase()
+    {
+        return $this->render('vue/starbase.html.twig');
+    }
 }

@@ -16,6 +16,8 @@ Encore
     .addEntry('js/model', './assets/js/model.js')
     .addEntry('js/hook', './assets/js/hook.js')
     .addEntry('js/notemaster', './assets/js/notemaster.js')
+    .addEntry('js/starbase', './assets/js/starbase.js')
+    .addEntry('css/starbase', './assets/css/starbase.css')
     // .addStyleEntry('css/app', './assets/css/app.scss')
 
     // uncomment if you use Sass/SCSS files
