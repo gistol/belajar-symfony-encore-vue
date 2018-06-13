@@ -62,4 +62,12 @@ class VueController extends Controller
     {
         return $this->render('vue/starbase-router.html.twig');
     }
+
+    /**
+     * @Route("/vue-jokester", name="vue-jokester")
+     */
+    public function jokester()
+    {
+        return $this->render('vue/jokester.html.twig');
+    }
 }

@@ -20,6 +20,8 @@ Encore
     .addEntry('js/starbase-router', './assets/js/starbase-router.js')
     .addEntry('css/starbase', './assets/css/starbase.css')
     .addEntry('css/starbase-router', './assets/css/starbase-router.css')
+    .addEntry('js/jokester', './assets/js/jokester.js')
+    .addEntry('css/jokester', './assets/css/jokester.css')
     // .addStyleEntry('css/app', './assets/css/app.scss')
 
     // uncomment if you use Sass/SCSS files
