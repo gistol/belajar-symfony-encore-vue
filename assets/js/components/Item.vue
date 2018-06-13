@@ -2,8 +2,8 @@
     <div class="col-md-4" @click="switchItem">
         <div class="item-card">
             <div class="card-block">
-                <h4 class="card-title"> {{ mutableItem.name }}</h4>
-                <div v-for="(value,key,index) in mutableItem">
+                <h4 class="card-title"> {{ item.name }}</h4>
+                <div v-for="(value,key,index) in item">
                     <div v-if="index < 5">
                         <strong> {{ key }}</strong> : {{ value }}
                     </div>
@@ -16,10 +16,10 @@
 <script>
 
     export default {
-        props: ['item','type'],
+        props: ['passedItem','type'],
         data() {
             return {
-                mutableItem: this.item
+                item: {}
             }
         },
         methods: {
@@ -29,8 +29,11 @@
                     method: 'GET'
                 })
                     .then(reponses => reponses.json())
-                    .then(json => this.mutableItem = json)
+                    .then(json => this.item = json)
             }
+        },
+        created() {
+            this.item = this.passedItem
         }
     }
 

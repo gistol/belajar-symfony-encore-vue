@@ -10,6 +10,6 @@ TODO :
 4. ~~Belajar Lifecycle Hook.~~
 5. ~~Membuat Aplikasi Note Master.~~
 6. ~~Membuat Aplikasi Starbase.~~
-7. Membuat Aplikasi Starbase dengan Vue Router
+7. ~~Membuat Aplikasi Starbase dengan Vue Router~~
 8. Membuat Aplikasi Jokester
 9. Membuat Aplikasi TurnOut
