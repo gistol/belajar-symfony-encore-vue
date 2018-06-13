@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Starbase Router apps !{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/js/counter.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/css/starbase-router.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/js/starbase-router.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container mt-3" id="app">
+
+</div>
+
+{% endblock %}
